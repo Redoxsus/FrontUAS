@@ -1,0 +1,107 @@
+<!--Navbar
+    .navbar {
+    transition: background-color 0.5s ease, box-shadow 0.5s ease; /* Durasi dan kehalusan transisi */
+    }
+    .navbar.scrolled {
+      background-color: white !important;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+    .navbar:not(.scrolled) {
+      background: transparent;
+      box-shadow: none; /* Tanpa bayangan */
+    }
+    .navbar-brand img {
+      height: 50px;
+    }
+
+    .carousel-item img {
+      height: 70vh;
+      object-fit: cover;
+    }
+    .hero-caption {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: white;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+      text-align: center;
+    }
+
+    .carousel-item img {
+  width: 100%;
+  height: 70vh; /* Menyesuaikan tinggi berdasarkan viewport */
+  object-fit: cover; /* Memastikan gambar mengisi area carousel dengan proporsi yang benar */
+}
+
+    .footer {
+        text-align: center;
+       justify-content: center; /* Horizontal Ditengah */
+       align-items: center; /* Vertikal Ditengah */
+        background-color: rgb(78, 76, 76);
+        padding-bottom: 3rem;
+        color: white !important;
+    }
+
+    /* Container styling */
+
+
+.category-card {
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transition effect */
+  background-color: white;
+  border-radius: 10px;
+  overflow: hidden;
+  padding: 1rem;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Initial shadow */
+}
+
+.category-card img {
+  width: 100%;
+  border-radius: 10px;
+  object-fit: cover;
+  transition: transform 0.3s ease; /* Smooth hover effect for image */
+}
+
+.category-card h5 {
+  margin-top: 10px;
+  font-weight: bold;
+  color: #333;
+}
+
+/* Hover effect */
+.category-card:hover {
+  transform: scale(1.05); /* Slight "pop-up" effect */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Stronger shadow on hover */
+}
+
+.category-card:hover img {
+  transform: scale(1.1); /* Slight zoom-in effect for image */
+}
+
+
+/* About Us Image Styling */
+#about img {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Subscription Section Styling */
+  #subscription {
+    background-color: #f8f9fa;
+  }
+  
+  #subscription form input {
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    padding: 0.75rem;
+  }
+  
+  #subscription form input:focus {
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+  }
+  
+  #subscription button {
+    padding: 0.75rem 1.5rem;
+  }
+  
