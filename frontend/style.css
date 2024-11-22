@@ -105,3 +105,103 @@
     padding: 0.75rem 1.5rem;
   }
   
+  #highlight-news {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .news-item {
+    display: flex;
+    gap: 20px;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 20px;
+  }
+  
+  .news-item:last-child {
+    border-bottom: none;
+  }
+  
+  .news-image {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 8px;
+  }
+  
+  .news-content {
+    flex: 1;
+  }
+  
+  .news-category {
+    color: #D20082; /* Warna pink untuk kategori */
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  
+  .news-title {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 0 0 10px;
+  }
+  
+  .news-description {
+    font-size: 14px;
+    color: #555;
+  }
+  
+  #highlight-news {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .news-item {
+    display: flex;
+    gap: 20px;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 20px;
+    text-decoration: none; /* Hilangkan garis bawah pada tautan */
+    color: inherit; /* Warna teks default mengikuti tema */
+    transition: background-color 0.3s, transform 0.2s; /* Animasi untuk efek hover */
+  }
+  
+  .news-item:last-child {
+    border-bottom: none;
+  }
+  
+  .news-item:hover {
+    background-color: #f9f9f9; /* Warna latar saat di-hover */
+    transform: scale(1.02); /* Sedikit memperbesar saat di-hover */
+  }
+  
+  .news-image {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 8px;
+  }
+  
+  .news-content {
+    flex: 1;
+  }
+  
+  .news-category {
+    color: #D20082; /* Warna pink untuk kategori */
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  
+  .news-title {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 0 0 10px;
+  }
+  
+  .news-description {
+    font-size: 14px;
+    color: #555;
+  }
+  
