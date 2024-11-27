@@ -1,66 +1,281 @@
 <!--Navbar
-    .navbar {
-    transition: background-color 0.5s ease, box-shadow 0.5s ease; /* Durasi dan kehalusan transisi */
-    }
-    .navbar.scrolled {
-      background-color: white !important;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    }
-    .navbar:not(.scrolled) {
-      background: transparent;
-      box-shadow: none; /* Tanpa bayangan */
-    }
-    .navbar-brand img {
-      height: 50px;
-    }
+/* Navbar Styling */
+.navbar {
+  transition: background-color 0.5s ease, box-shadow 0.5s ease; 
+}
 
-    .carousel-item img {
-      height: 70vh;
-      object-fit: cover;
+.navbar.scrolled {
+  background: linear-gradient(135deg, #a8e6cf, #dcedc1); 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+}
+
+.navbar:not(.scrolled) {
+  background: transparent;
+  box-shadow: none;
+}
+
+.navbar-brand img {
+  height: 50px;
+}
+
+.navbar .nav-link {
+  color: #f8f9fa !important;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.6); 
+  font-weight: bold;
+}
+
+.navbar .nav-link:hover {
+  color: #f9b3b3; 
+}
+
+/* Scroll effect on navbar */
+.navbar.scrolled {
+  background-color: #ffffff;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.navbar a {
+  transition: color 0.3s;
+}
+
+.navbar .btn-primary.gradient-btn {
+  background: #dcedc1;
+  border: none;
+  color: #ffffff;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.6);
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  margin-right: 15px;
+}
+
+.navbar .btn-secondary.gradient-btn {
+  background: #f9b3b3; 
+  border: none;
+  color: #ffffff;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.6);
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.navbar .btn-primary.gradient-btn:hover,
+.navbar .btn-secondary.gradient-btn:hover {
+  background: linear-gradient(to right, #ff7f50, #4e8c71);
+  transform: scale(1.05);
+  box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.4);
+}
+
+/* Form styling */
+form {
+  background-color: #ffffff;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 500px; 
+  margin: 0 auto; 
+}
+
+form input,
+form button {
+  width: 100%;
+  padding: 0.75rem;
+  border-radius: 5px;
+  margin-bottom: 1rem; 
+}
+
+form input {
+  border: 1px solid #ced4da;
+  transition: border-color 0.3s ease;
+}
+
+form input:focus {
+  outline: none;
+  border-color: #66afe9;
+  box-shadow: 0 0 5px rgba(66, 175, 233, 0.5);
+}
+
+form button {
+  background-color: #4e8c71;
+  color: white;
+  border: none;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+form button:hover {
+  background-color: #ff7f50;
+  transform: scale(1.05); 
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Modal Styles */
+.modal-content {
+  background-color: #ffffff;
+  border-radius: 10px; 
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1); 
+}
+
+.modal-header {
+  background: linear-gradient(to right, #4e8c71, #ff7f50); 
+  color: white;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.modal-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.modal-body {
+  padding: 20px;
+}
+
+.form-label {
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.form-control {
+  border-radius: 5px; 
+  border: 1px solid #ccc;
+  box-shadow: none;
+  padding: 10px;
+  margin-bottom: 15px;
+}
+
+.btn-primary {
+  background-color: #4e8c71;
+  border-color: #4e8c71;
+  font-size: 1.1rem;
+  padding: 12px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.btn-primary:hover {
+  background-color: #ff7f50; 
+  border-color: #ff7f50;
+}
+
+/* Error and Success Messages */
+.alert {
+  font-size: 1rem;
+  padding: 10px;
+  border-radius: 5px;
+}
+.alert-success {
+  background-color: #d4edda;
+  color: #155724;
+}
+
+.alert-danger {
+  background-color: #f8d7da;
+  color: #721c24;
+}
+
+.carousel-item img {
+   height: 70vh;
+   object-fit: cover;
     }
-    .hero-caption {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      color: white;
-      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
-      text-align: center;
-    }
+.hero-caption {
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+   color: white;
+   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+   text-align: center;
+  }
 
     .carousel-item img {
   width: 100%;
-  height: 70vh; /* Menyesuaikan tinggi berdasarkan viewport */
-  object-fit: cover; /* Memastikan gambar mengisi area carousel dengan proporsi yang benar */
+  height: 70vh; 
+  object-fit: cover; 
 }
 
-    .footer {
-        text-align: center;
-       justify-content: center; /* Horizontal Ditengah */
-       align-items: center; /* Vertikal Ditengah */
-        background-color: rgb(78, 76, 76);
-        padding-bottom: 3rem;
-        color: white !important;
-    }
+   /* Footer Styling */
+.footer {
+  background: linear-gradient(135deg, #a8e6cf, #dcedc1);
+  color: #f8f9fa !important;
+  padding: 2rem 0;
+  text-align: center;
+  font-size: 14px;
+  letter-spacing: 0.5px;
+  z-index: 5;
+}
 
-    /* Container styling */
+/* Footer links */
+.footer a {
+  color: #f9b3b3;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.footer a:hover {
+  color: #ffffff;
+  text-decoration: underline;
+}
+
+/* Footer social media icons */
+.footer .social-icons {
+  margin-top: 1rem;
+}
+
+.footer .social-icons a {
+  margin: 0 10px;
+  color: #f8f9fa;
+  font-size: 20px;
+  transition: color 0.3s;
+}
+
+.footer .social-icons a:hover {
+  color: #f9b3b3; 
+}
+
+.footer::before {
+  content: "";
+  display: block;
+  height: 1px;
+  background-color: #ddd;
+  margin-bottom: 1rem;
+}
+
+body {
+  background: #f7f9f9;
+  font-family: 'Arial', sans-serif;
+  color: #333;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  padding: 3rem 1rem;
+}
+
+section {
+  background: linear-gradient(135deg, #ffffff, #f2f2f2);
+  padding: 2rem;
+  margin-bottom: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
 
 
 .category-card {
   text-align: center;
-  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transition effect */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; 
   background-color: white;
   border-radius: 10px;
   overflow: hidden;
   padding: 1rem;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Initial shadow */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
 }
 
 .category-card img {
   width: 100%;
   border-radius: 10px;
   object-fit: cover;
-  transition: transform 0.3s ease; /* Smooth hover effect for image */
+  transition: transform 0.3s ease; 
 }
 
 .category-card h5 {
@@ -71,12 +286,12 @@
 
 /* Hover effect */
 .category-card:hover {
-  transform: scale(1.05); /* Slight "pop-up" effect */
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Stronger shadow on hover */
+  transform: scale(1.05); 
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); 
 }
 
 .category-card:hover img {
-  transform: scale(1.1); /* Slight zoom-in effect for image */
+  transform: scale(1.1); 
 }
 
 
@@ -85,7 +300,6 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   }
   
-  /* Subscription Section Styling */
   #subscription {
     background-color: #f8f9fa;
   }
@@ -134,7 +348,7 @@
   }
   
   .news-category {
-    color: #D20082; /* Warna pink untuk kategori */
+    color: #D20082;
     font-size: 14px;
     font-weight: bold;
     margin-bottom: 5px;
@@ -162,9 +376,9 @@
     gap: 20px;
     border-bottom: 1px solid #ddd;
     padding-bottom: 20px;
-    text-decoration: none; /* Hilangkan garis bawah pada tautan */
-    color: inherit; /* Warna teks default mengikuti tema */
-    transition: background-color 0.3s, transform 0.2s; /* Animasi untuk efek hover */
+    text-decoration: none; 
+    color: inherit; 
+    transition: background-color 0.3s, transform 0.2s; 
   }
   
   .news-item:last-child {
@@ -172,8 +386,8 @@
   }
   
   .news-item:hover {
-    background-color: #f9f9f9; /* Warna latar saat di-hover */
-    transform: scale(1.02); /* Sedikit memperbesar saat di-hover */
+    background-color: #f9f9f9; 
+    transform: scale(1.02); 
   }
   
   .news-image {
@@ -188,7 +402,7 @@
   }
   
   .news-category {
-    color: #D20082; /* Warna pink untuk kategori */
+    color: #D20082;
     font-size: 14px;
     font-weight: bold;
     margin-bottom: 5px;

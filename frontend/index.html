@@ -8,47 +8,13 @@
   <link rel="stylesheet" href="style.css">
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
   <link rel="icon" href="/path/to/favicon.ico" />
-
-  <script>
-    // AngularJS app
-    const app = angular.module('lifestyleApp', []);
-    app.controller('MainController', ['$scope', '$http', function($scope, $http) {
-      $scope.subscriptionEmail = '';
-      $scope.showSuccessMessage = false;
-      $scope.showErrorMessage = false;
-      $scope.errorMessage = '';
-  
-      $scope.subscribe = function() {
-        if ($scope.subscriptionEmail) {
-          const data = {
-            email: $scope.subscriptionEmail
-          };
-  
-          // Send request to backend to save the email
-          $http.post('http://localhost:3000/api/subscribe', data)
-            .then(function(response) {
-              $scope.showSuccessMessage = true;
-              $scope.showErrorMessage = false;
-              $scope.errorMessage = '';  
-              $scope.subscriptionEmail = '';  
-            })
-            .catch(function(error) {
-              $scope.showSuccessMessage = false;
-              $scope.showErrorMessage = true;
-              if (error.data && error.data.error === 'This email is already subscribed.') {
-                $scope.errorMessage = 'This email is already subscribed!';
-              } else {
-                $scope.errorMessage = 'Something went wrong. Please try again.';
-              }
-            });
-        }
-      };
-    }]);
-  </script>
-
-  </script>
+  <script src="app.js"></script>
+  <script src="controllers/services/SubscriptionService.js"></script>
+  <script src="controllers/MainController.js"></script>
+ 
 </head>
 <body ng-controller="MainController">
+
   <!-- Navbar -->
   <nav class="navbar navbar-expand-lg navbar-light fixed-top">
     <div class="container-fluid">
@@ -81,8 +47,11 @@
             <a class="nav-link" href="#contact">Contact</a>
           </li>
           <li class="nav-item">
-            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#loginModal">Login</button>
+            <button class="btn btn-primary gradient-btn" data-bs-toggle="modal" data-bs-target="#loginModal">Login</button>
           </li>
+          <li class="nav-item">
+            <button class="btn btn-primary gradient-btn" data-bs-toggle="modal" data-bs-target="#registerModal">Register</button>
+          </li>         
         </ul>
       </div>
     </div>
@@ -116,7 +85,6 @@
   <div id="categories" class="container my-5">
     <h2 class="text-center mb-4">Categories</h2>
     <div class="row">
-      <!-- Categories are untouched -->
       <div class="col-md-3 mb-4">
         <div class="category-card">
           <img src="https://pbs.twimg.com/profile_images/1738692664600428545/_Q4Y5a0L_400x400.jpg" alt="Category 1">
@@ -143,10 +111,8 @@
       </div>
     </div>
   </div>
-  <hr>
 
-  <!-- Artikel -->
-
+  <!-- Artikel Section -->
   <div id="highlight-news" class="container my-5">
     <a href="#" class="news-item">
       <img src="https://magnusfitness.co.id/blog/wp-content/uploads/perbedaan-crossfit-dan-gym.jpg" alt="News 1" class="news-image">
@@ -186,50 +152,46 @@
         <p>
           At Fresh Lifestyle, we believe that health and happiness go hand in hand. 
           Our mission is to inspire individuals to lead a balanced and fulfilling life by focusing on fitness, nutrition, mental well-being, and style. 
-          Explore our expertly curated content, tips, and trends to start your journey towards a healthier and happier you.
-        </p>
-        <p>
-          Join us in celebrating the art of living well and redefining what it means to be truly vibrant in body, mind, and soul.
+          Join us on the journey to a healthier you!
         </p>
       </div>
     </div>
   </div>
-  <hr>
 
-  <!-- Subscription Section -->
-<div id="subscription" class="bg-light py-5">
-  <div class="container text-center">
-    <h2 class="mb-4">Stay Updated!</h2>
-    <p class="mb-4">Subscribe to our newsletter to receive the latest updates on health, wellness, and lifestyle tips directly to your inbox.</p>
-    <form class="row g-3 justify-content-center" ng-submit="subscribe()" novalidate>
-      <div class="col-md-6">
-        <input
-          type="email"
-          class="form-control"
-          id="email"
-          placeholder="Enter your email address"
-          ng-model="subscriptionEmail"
-          required
-        />
-      </div>
-      <div class="col-auto">
-        <button type="submit" class="btn btn-primary">Subscribe</button>
-      </div>
-    </form>
-    
-    <!-- Success Message -->
-    <div class="mt-4" ng-if="showSuccessMessage">
-      <p class="alert alert-success">Thank you for subscribing!</p>
-    </div>
+   <!-- Subscription Section -->
+   <div id="subscription" class="bg-light py-5">
+    <div class="container text-center">
+      <h2 class="mb-4">Stay Updated!</h2>
+      <p class="mb-4">Subscribe to our newsletter to receive the latest updates on health, wellness, and lifestyle tips directly to your inbox.</p>
+      <form class="row g-3 justify-content-center" ng-submit="subscribe()" novalidate>
+        <div class="col-md-6">
+          <input
+            type="email"
+            class="form-control"
+            id="email"
+            placeholder="Enter your email address"
+            ng-model="email"
+            required
+          />
+        </div>
+        <div class="col-auto">
+          <button type="submit" class="btn btn-primary">Subscribe</button>
+        </div>
+      </form>
 
-    <!-- Error Message -->
-    <div class="mt-4" ng-if="showErrorMessage">
-      <p class="alert alert-danger">{{ errorMessage }}</p>
+      <!-- Pesan Berhasil -->
+      <div class="mt-4" ng-if="message">
+        <p class="alert alert-success">{{ message }}</p>
+      </div>
+
+      <!-- Pesan Error -->
+      <div class="mt-4" ng-if="error">
+        <p class="alert alert-danger">{{ error }}</p>
+      </div>
     </div>
   </div>
-</div>
 
-<!-- Login Page -->
+<!-- Login Modal -->
 <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -238,28 +200,14 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <form>
-          <div class="row mb-3">
-            <div class="col-md-6">
-              <label for="firstNameInput" class="form-label">First Name</label>
-              <input type="text" class="form-control" id="firstNameInput" placeholder="Enter your first name" required>
-            </div>
-            <div class="col-md-6">
-              <label for="lastNameInput" class="form-label">Last Name</label>
-              <input type="text" class="form-control" id="lastNameInput" placeholder="Enter your last name" required>
-            </div>
+        <form ng-submit="login()">
+          <div class="mb-3">
+            <label for="loginEmail" class="form-label">Email Address</label>
+            <input type="email" class="form-control" id="loginEmail" ng-model="loginData.email" placeholder="Enter your email" required>
           </div>
           <div class="mb-3">
-            <label for="birthdateInput" class="form-label">Birthdate</label>
-            <input type="date" class="form-control" id="birthdateInput" required>
-          </div>
-          <div class="mb-3">
-            <label for="emailInput" class="form-label">Email Address</label>
-            <input type="email" class="form-control" id="emailInput" placeholder="Enter your email" required>
-          </div>
-          <div class="mb-3">
-            <label for="passwordInput" class="form-label">Password</label>
-            <input type="password" class="form-control" id="passwordInput" placeholder="Enter your password" required>
+            <label for="loginPassword" class="form-label">Password</label>
+            <input type="password" class="form-control" id="loginPassword" ng-model="loginData.password" placeholder="Enter your password" required>
           </div>
           <button type="submit" class="btn btn-primary w-100">Login</button>
         </form>
@@ -268,6 +216,34 @@
   </div>
 </div>
 
+<!-- Register Modal -->
+<div class="modal fade" id="registerModal" tabindex="-1" aria-labelledby="registerModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="registerModalLabel">Register</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form ng-submit="register()">
+          <div class="mb-3">
+            <label for="registerName" class="form-label">Full Name</label>
+            <input type="text" class="form-control" id="registerName" ng-model="registerData.name" placeholder="Enter your full name" required>
+          </div>
+          <div class="mb-3">
+            <label for="registerEmail" class="form-label">Email Address</label>
+            <input type="email" class="form-control" id="registerEmail" ng-model="registerData.email" placeholder="Enter your email" required>
+          </div>
+          <div class="mb-3">
+            <label for="registerPassword" class="form-label">Password</label>
+            <input type="password" class="form-control" id="registerPassword" ng-model="registerData.password" placeholder="Enter your password" required>
+          </div>
+          <button type="submit" class="btn btn-primary w-100">Register</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
 
   <!-- Footer -->
   <footer class="footer">
@@ -276,16 +252,18 @@
 
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.min.js"></script>
+  
   <script>
-    // Navbar scroll effect
-    window.addEventListener("scroll", function () {
-      const navbar = document.querySelector(".navbar");
-      if (window.scrollY > 50) {
-        navbar.classList.add("scrolled");
-      } else {
-        navbar.classList.remove("scrolled");
-      }
-    });
-  </script>
+  window.addEventListener('scroll', function () {
+    const navbar = document.querySelector('.navbar');
+    if (window.scrollY > 50) {
+      navbar.classList.add('scrolled');
+    } else {
+      navbar.classList.remove('scrolled');
+    }
+  });
+</script>
+  <!-- Include AngularJS logic -->
+  <script src="app.js"></script>
 </body>
 </html>
