@@ -1,15 +1,13 @@
-angular.module('lifestyleApp').service('SubscriptionService', function($http) {
-    const baseUrl = 'http://localhost:3000/api';
-    
+angular.module('lifestyleApp').service('SubscriptionService', ['$http', function($http) {
     this.subscribe = function(email) {
-        return $http.post(`${baseUrl}/subscribe`, { email });
+        return $http.post('http://localhost:3000/api/subscribe', { email: email });
     };
-    
-    this.register = function(user) {
-        return $http.post(`${baseUrl}/register`, user);
+
+    this.register = function(data) {
+        return $http.post('http://localhost:3000/api/register', data);
     };
-    
-    this.login = function(user) {
-        return $http.post(`${baseUrl}/login`, user);
+
+    this.login = function(data) {
+        return $http.post('http://localhost:3000/api/login', data);
     };
-});
+}]);
