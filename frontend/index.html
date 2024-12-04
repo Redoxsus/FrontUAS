@@ -4,19 +4,18 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Fresh Styles</title>
+  <!-- External Libraries -->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
   <link rel="stylesheet" href="style.css">
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
   <link rel="icon" href="/path/to/favicon.ico" />
+  <!-- AngularJS Files -->
   <script src="app.js"></script>
   <script src="controllers/services/SubscriptionService.js"></script>
   <script src="controllers/MainController.js"></script>
- 
 </head>
 <body ng-controller="MainController">
-
   <!-- Navbar -->
   <nav class="navbar navbar-expand-lg navbar-light fixed-top">
     <div class="container-fluid">
@@ -46,103 +45,117 @@
             <a class="nav-link" href="#about">About</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#contact">Contact</a>
+            <a class="nav-link" href="community.html">Community</a>
           </li>
           <li class="nav-item">
             <button class="btn btn-primary gradient-btn" data-bs-toggle="modal" data-bs-target="#loginModal">Login</button>
-          </li>
-          <li class="nav-item">
-            <button class="btn btn-primary gradient-btn" data-bs-toggle="modal" data-bs-target="#registerModal">Register</button>
-          </li>         
+          </li>       
         </ul>
       </div>
     </div>
   </nav>
 
-  <!-- Hero Section with Carousel -->
-  <div id="heroCarousel" class="carousel slide position-relative" data-bs-ride="carousel">
-    <div class="carousel-inner">
-      <div class="carousel-item active">
-        <img src="https://blog.hkvitals.com/wp-content/uploads/2023/05/Benefits-of-having-a-healthy-lifestyle_900.jpg" class="d-block w-100" alt="Property 1">
-        <div class="hero-caption">
-          <h1>Healthy Living</h1>
+ <!-- Modal Login -->
+ <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="loginModalLabel" ng-if="!isRegisterForm">Login</h5>
+        <h5 class="modal-title" id="loginModalLabel" ng-if="isRegisterForm">Register</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <!-- Login Form -->
+        <div ng-show="!isRegisterForm">
+          
+          <input type="email" ng-model="login.email" placeholder="Email" required class="form-control mb-3">
+          <input type="password" ng-model="login.password" placeholder="Password" required class="form-control mb-3">
+          <button ng-click="loginSubmit()" class="btn btn-primary w-100">Login</button>
+          <br>
+          <br>
+          <button class="btn btn-primary w-100" ng-click="toggleForm('register')">Register</button>
+        </div>
+        <!-- Register Form -->
+        <div ng-show="isRegisterForm">
+         
+          <input type="text" ng-model="register.fullName" placeholder="Full Name" required class="form-control mb-3">
+          <input type="email" ng-model="register.email" placeholder="Email" required class="form-control mb-3">
+          <input type="password" ng-model="register.password" placeholder="Password" required class="form-control mb-3">
+          <input type="date" ng-model="register.birthdate" placeholder="Birthdate" required class="form-control mb-3">
+          <button ng-click="registerSubmit()" class="btn btn-primary w-100">Register</button>
+          <br>
+          <br>
+          <button class="btn btn-primary w-100" ng-click="toggleForm('login')">Login</button>
         </div>
       </div>
-      <div class="carousel-item">
-        <img src="https://st4.depositphotos.com/13193658/21945/i/1600/depositphotos_219450478-stock-photo-cropped-image-mature-friends-preparing.jpg" class="d-block w-100" alt="Property 2">
-        <div class="hero-caption">
-          <h1>Healthy Guts</h1>
-        </div>
-      </div>
-      <div class="carousel-item">
-        <img src="https://www.hotelcreatives.com/wp-content/uploads/2021/06/Conrad-Bali-Lifestyle-Pool_1-1024x599.jpg" class="d-block w-100" alt="Property 3">
-        <div class="hero-caption">
-          <h1>Healthy Mental</h1>
-        </div>
-      </div>
-    </div>
-  </div>
-
- <!-- Categories Section -->
-<div id="categories" class="container my-5">
-  <h2 class="text-center mb-4">Categories</h2>
-  <div class="row">
-    <div class="col-md-3 mb-4">
-      <a href="category.html?category=fitness" class="category-card text-decoration-none">
-        <img src="https://pbs.twimg.com/profile_images/1738692664600428545/_Q4Y5a0L_400x400.jpg" alt="Fitness & Sports">
-        <h5 class="text-center mt-2">Fitness & Sports</h5>
-      </a>
-    </div>
-    <div class="col-md-3 mb-4">
-      <a href="category.html?category=healthy-foods" class="category-card text-decoration-none">
-        <img src="https://levanacooks.com/wp-content/uploads/2022/05/9A78643B-C0D2-4E92-938A-36B6CDA8F2AC-400x400.jpeg" alt="Healthy Foods">
-        <h5 class="text-center mt-2">Healthy Foods</h5>
-      </a>
-    </div>
-    <div class="col-md-3 mb-4">
-      <a href="category.html?category=mental-health" class="category-card text-decoration-none">
-        <img src="https://i.pinimg.com/736x/25/82/81/2582813a37978661de74b287d5f69a47.jpg" alt="Stable Mental">
-        <h5 class="text-center mt-2">Stable Mental</h5>
-      </a>
-    </div>
-    <div class="col-md-3 mb-4">
-      <a href="category.html?category=fashion-trends" class="category-card text-decoration-none">
-        <img src="https://asset2.cxnmarksandspencer.com/is/image/mands/1229_20210531_LF_MW_MENS-STYLE_BSLH-8381_2?$editorial_780x780$" alt="Fashion Trends">
-        <h5 class="text-center mt-2">Fashion Trends</h5>
-      </a>
     </div>
   </div>
 </div>
 
 
-  <!-- Artikel Section -->
-  <div id="highlight-news" class="container my-5">
-    <a href="#" class="news-item">
-      <img src="https://magnusfitness.co.id/blog/wp-content/uploads/perbedaan-crossfit-dan-gym.jpg" alt="News 1" class="news-image">
-      <div class="news-content">
-        <span class="news-category">LIFESTYLE</span>
-        <h3 class="news-title">Highlight Keseruan Come See Mie Fest 2024, 37.000 Pengunjung Padati Venue di Bandung</h3>
-        <p class="news-description">Mie Sedaap juga memperkenalkan Gracie, karakter terbaru yang diciptakan oleh WD Willy.</p>
+
+<!-- Hero Section with Video Carousel -->
+<div id="heroCarousel" class="carousel slide position-relative" data-bs-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <video class="d-block w-100" autoplay loop muted>
+        <source src="/FrontUAS/frontend/vid/live.mp4" type="video/mp4">
+      </video>
+      <div class="hero-caption">
+        <h1>Healthy Living</h1>
       </div>
-    </a>
-    <a href="#" class="news-item">
-      <img src="https://mealsforall.com/wp-content/uploads/2018/06/Food-with-Milk.png" alt="News 2" class="news-image">
-      <div class="news-content">
-        <span class="news-category">PHOTO</span>
-        <h3 class="news-title">Pancarkan Aura Bahagia, Pesona Inara Rusli di Tanah Suci Begitu Sejuk</h3>
-        <p class="news-description">Jalani ibadah umrah, tampilan Inara Rusli begitu sejuk.</p>
+    </div>
+    <div class="carousel-item">
+      <video class="d-block w-100" autoplay loop muted>
+        <source src="/FrontUAS/frontend/vid/food.mp4" type="video/mp4">
+      </video>
+      <div class="hero-caption">
+        <h1>Healthy Guts</h1>
       </div>
-    </a>
-    <a href="#" class="news-item">
-      <img src="https://www.academicimpressions.com/wp-content/uploads/2020/01/mental-health-scaled.jpg" alt="News 3" class="news-image">
-      <div class="news-content">
-        <span class="news-category">ENTERTAINMENT</span>
-        <h3 class="news-title">Cantika Abigail Tampil Stunning dalam Nuansa Hijau Neon, Ini Inspirasi Gaya Segar untuk Para Fashionista</h3>
-        <p class="news-description">Dalam unggahan terbarunya, Cantika tampil percaya diri dengan memadukan elemen-elemen yang unik dalam outfit-nya.</p>
+    </div>
+    <div class="carousel-item">
+      <video class="d-block w-100" autoplay loop muted>
+        <source src="/FrontUAS/frontend/vid/hap.mp4" type="video/mp4">
+      </video>
+      <div class="hero-caption">
+        <h1>Healthy Mental</h1>
       </div>
-    </a>
+    </div>
   </div>
-  <hr>
+</div>
+
+
+  <!-- Categories Section -->
+  <div id="categories" class="container my-5">
+    <h2 class="text-center mb-4">Categories</h2>
+    <div class="row">
+      <!-- Repeatable Card Component -->
+      <div class="col-md-3 mb-4">
+        <a href="category.html?category=fitness" class="category-card text-decoration-none">
+          <img src="https://pbs.twimg.com/profile_images/1738692664600428545/_Q4Y5a0L_400x400.jpg" alt="Fitness & Sports">
+          <h5 class="text-center mt-2">Fitness & Sports</h5>
+        </a>
+      </div>
+      <div class="col-md-3 mb-4">
+        <a href="category.html?category=healthy-foods" class="category-card text-decoration-none">
+          <img src="https://levanacooks.com/wp-content/uploads/2022/05/9A78643B-C0D2-4E92-938A-36B6CDA8F2AC-400x400.jpeg" alt="Healthy Foods">
+          <h5 class="text-center mt-2">Healthy Foods</h5>
+        </a>
+      </div>
+      <div class="col-md-3 mb-4">
+        <a href="category.html?category=mental-health" class="category-card text-decoration-none">
+          <img src="https://i.pinimg.com/736x/25/82/81/2582813a37978661de74b287d5f69a47.jpg" alt="Stable Mental">
+          <h5 class="text-center mt-2">Stable Mental</h5>
+        </a>
+      </div>
+      <div class="col-md-3 mb-4">
+        <a href="category.html?category=fashion-trends" class="category-card text-decoration-none">
+          <img src="https://asset2.cxnmarksandspencer.com/is/image/mands/1229_20210531_LF_MW_MENS-STYLE_BSLH-8381_2?$editorial_780x780$" alt="Fashion Trends">
+          <h5 class="text-center mt-2">Fashion Trends</h5>
+        </a>
+      </div>
+    </div>
+  </div>
 
   <!-- About Us Section -->
   <div id="about" class="container my-5">
@@ -160,12 +173,11 @@
       </div>
     </div>
   </div>
-
-   <!-- Subscription Section -->
-   <div id="subscription" class="bg-light py-5">
+  
+  <!-- Subscription Section -->
+  <div id="subscription" class="bg-light py-5">
     <div class="container text-center">
       <h2 class="mb-4">Stay Updated!</h2>
-      <p class="mb-4">Subscribe to our newsletter to receive the latest updates on health, wellness, and lifestyle tips directly to your inbox.</p>
       <form class="row g-3 justify-content-center" ng-submit="subscribe()" novalidate>
         <div class="col-md-6">
           <input
@@ -181,97 +193,60 @@
           <button type="submit" class="btn btn-primary">Subscribe</button>
         </div>
       </form>
-
-      <!-- Pesan Berhasil -->
       <div class="mt-4" ng-if="message">
         <p class="alert alert-success">{{ message }}</p>
       </div>
-
-      <!-- Pesan Error -->
       <div class="mt-4" ng-if="error">
         <p class="alert alert-danger">{{ error }}</p>
       </div>
     </div>
   </div>
 
-<!-- Login Modal -->
-<div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="loginModalLabel">Login</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <form ng-submit="login()">
-          <div class="mb-3">
-            <label for="loginEmail" class="form-label">Email Address</label>
-            <input type="email" class="form-control" id="loginEmail" ng-model="loginData.email" placeholder="Enter your email" required>
-          </div>
-          <div class="mb-3">
-            <label for="loginPassword" class="form-label">Password</label>
-            <input type="password" class="form-control" id="loginPassword" ng-model="loginData.password" placeholder="Enter your password" required>
-          </div>
-          <button type="submit" class="btn btn-primary w-100">Login</button>
-        </form>
-      </div>
+  <!-- Footer -->
+  <footer class="footer">
+    <p>&copy; 2024 Fresh Styles. All rights reserved.</p>
+    <div class="social-icons">
+      <a href="#"><i class="fab fa-facebook-f"></i></a>
+      <a href="#"><i class="fab fa-twitter"></i></a>
+      <a href="#"><i class="fab fa-instagram"></i></a>
     </div>
-  </div>
-</div>
+  </footer>
 
-<!-- Register Modal -->
-<div class="modal fade" id="registerModal" tabindex="-1" aria-labelledby="registerModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="registerModalLabel">Register</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <form ng-submit="register()">
-          <div class="mb-3">
-            <label for="registerName" class="form-label">Full Name</label>
-            <input type="text" class="form-control" id="registerName" ng-model="registerData.name" placeholder="Enter your full name" required>
-          </div>
-          <div class="mb-3">
-            <label for="registerEmail" class="form-label">Email Address</label>
-            <input type="email" class="form-control" id="registerEmail" ng-model="registerData.email" placeholder="Enter your email" required>
-          </div>
-          <div class="mb-3">
-            <label for="registerPassword" class="form-label">Password</label>
-            <input type="password" class="form-control" id="registerPassword" ng-model="registerData.password" placeholder="Enter your password" required>
-          </div>
-          <button type="submit" class="btn btn-primary w-100">Register</button>
-        </form>
-      </div>
-    </div>
-  </div>
-</div>
-
-<footer class="footer">
-  <p>&copy; 2024 Fresh Styles. All rights reserved.</p>
-  <div class="social-icons">
-    <a href="#"><i class="fab fa-facebook-f"></i></a>
-    <a href="#"><i class="fab fa-twitter"></i></a>
-    <a href="#"><i class="fab fa-instagram"></i></a>
-  </div>
-</footer>
-
-
+  <!-- Scripts -->
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.min.js"></script>
-  
   <script>
-  window.addEventListener('scroll', function () {
-    const navbar = document.querySelector('.navbar');
-    if (window.scrollY > 50) {
-      navbar.classList.add('scrolled');
-    } else {
-      navbar.classList.remove('scrolled');
-    }
-  });
-</script>
-  <!-- Include AngularJS logic -->
-  <script src="app.js"></script>
+    // Tambahkan event listener untuk menangani scroll
+window.addEventListener('scroll', function () {
+  const navbar = document.querySelector('.navbar');
+  if (window.scrollY > 50) { // Jika scroll lebih dari 50px
+    navbar.classList.add('scrolled');
+  } else {
+    navbar.classList.remove('scrolled');
+  }
+});
+
+angular.module('lifestyleApp', [])
+.controller('MainController', function ($scope) {
+  $scope.isRegisterForm = false; // Default form is Login
+
+  // Toggle between Login and Register form
+  $scope.toggleForm = function () {
+    $scope.isRegisterForm = !$scope.isRegisterForm;
+  };
+
+  // Login form submit
+  $scope.loginSubmit = function () {
+    // Handle login logic here (you can use $scope.login.email and $scope.login.password)
+    console.log('Login with:', $scope.login);
+  };
+
+  // Register form submit
+  $scope.registerSubmit = function () {
+    // Handle register logic here (you can use $scope.register)
+    console.log('Register with:', $scope.register);
+  };
+});
+  </script>
 </body>
 </html>
