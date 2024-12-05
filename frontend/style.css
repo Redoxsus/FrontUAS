@@ -72,7 +72,7 @@ h1, h2, h3, h4, h5, h6 {
 .navbar .nav-link {
   color: #333;
   margin-right: 10px;
-  padding: 0.5rem 0.75rem; /* Kurangi padding untuk mengecilkan link */
+  padding: 0.5rem 0.75rem; 
   transition: color 0.3s ease-in-out;
 }
 
@@ -99,6 +99,34 @@ h1, h2, h3, h4, h5, h6 {
   box-shadow: 0 4px 2px -2px gray; /* Tambahkan bayangan */
   transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
+
+/* Flexbox container to align profile icon and logout button */
+.navbar .nav-item.d-flex {
+  display: flex;
+  align-items: center; /* Ensures the items are vertically aligned */
+  gap: 40px; /* Adjusts space between the icon and button */
+}
+
+.profile-icon {
+  width: 40px; /* Adjust the size of the profile picture */
+  height: 40px;
+  border-radius: 50%; /* Makes it round */
+  object-fit: cover;
+}
+
+.logout-btn {
+  background-color: transparent;
+  border: none;
+  padding: 5px 10px;
+  font-size: 1rem;
+  cursor: pointer;
+  color: #333;
+}
+
+.logout-btn:hover {
+  color: #007bff;
+}
+
 
 
 /* Hero Section */

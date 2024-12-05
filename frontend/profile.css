@@ -1,139 +1,355 @@
-/* General body and layout styles */
-body {
-    font-family: 'Arial', sans-serif;
-    background-color: #f4f7f6;
+/* Buat body dan html menggunakan flexbox untuk mengisi layar */
+html, body {
+    height: 100%;
     margin: 0;
-    padding: 0;
-}
-
-.navbar {
-    background-color: #007bff;
-}
-
-.navbar-brand img {
-    max-width: 120px;
-}
-
-.navbar-nav .nav-link {
-    color: white !important;
-}
-
-.navbar-nav .nav-link:hover {
-    color: #f8f9fa !important;
-}
-
-.container {
-    margin-top: 80px;
-    padding: 30px;
-    background-color: white;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-/* Form styles */
-h2 {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  /* Layout untuk konten utama */
+  .main-content {
+    flex: 1;
+  }
+  
+  /* Styling untuk footer */
+  .footer {
     text-align: center;
-    margin-bottom: 20px;
-}
-
-.form-group {
-    margin-bottom: 20px;
-}
-
-label {
-    font-weight: bold;
+    padding: 20px;
+    background-color: #f8f9fa;
+    position: relative;
+    width: 100%;
+  }
+  
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-weight: 600;
+  }
+  
+  /* Navbar Styles */
+  .navbar {
+    background-color: transparent;
+    padding: 0.5rem 1rem; /* Kurangi padding untuk mengecilkan navbar */
+    transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  }
+  
+  .navbar.scrolled {
+    background-color: #f8f9fa;
+    box-shadow: 0 4px 2px -2px gray;
+  }
+  
+  .navbar-brand img {
+    height: 50px; /* Sesuaikan ukuran logo */
+    width: auto;
+  }
+  
+  .navbar .nav {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .navbar .nav li {
+    display: inline;
+    margin-right: 10px;
+  }
+  
+  .navbar .nav a {
+    text-decoration: none;
+    color: black;
+  }
+  
+  .navbar .navbar-brand {
+    font-size: 1.5rem;
+  }
+  
+  .content {
+    padding: 20px;
+  }
+  
+  .navbar .nav-link {
     color: #333;
-}
-
-input[type="text"],
-input[type="email"],
-textarea {
-    width: 100%;
-    padding: 10px;
-    margin-top: 5px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    box-sizing: border-box;
-}
-
-input[type="file"] {
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    padding: 10px;
-    margin-top: 5px;
-}
-
-textarea {
-    resize: vertical;
-    min-height: 100px;
-}
-
-/* Button Styles */
-button {
-    width: 100%;
-    padding: 12px;
-    background-color: #007bff;
-    color: white;
+    margin-right: 10px;
+    padding: 0.5rem 0.75rem; 
+    transition: color 0.3s ease-in-out;
+  }
+  
+  .navbar .nav-link:hover {
+    color: #007bff;
+  }
+  
+  .navbar .gradient-btn {
+    background: linear-gradient(45deg, #007bff, #6610f2);
     border: none;
-    border-radius: 5px;
-    font-size: 16px;
+    color: white;
+    padding: 8px 10px;
+    border-radius: 20px;
+    font-size: 0.87rem; /* Perkecil ukuran tombol */
+  }
+  
+  .navbar .gradient-btn:hover {
+    background: linear-gradient(45deg, #6610f2, #007bff);
+  }
+  
+  /* Efek untuk navbar saat di-scroll */
+  .navbar.scrolled {
+    background-color: #f8f9fa; /* Ubah warna latar belakang saat di-scroll */
+    box-shadow: 0 4px 2px -2px gray; /* Tambahkan bayangan */
+    transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  }
+  
+  /* Flexbox container to align profile icon and logout button */
+  .navbar .nav-item.d-flex {
+    display: flex;
+    align-items: center; /* Ensures the items are vertically aligned */
+    gap: 40px; /* Adjusts space between the icon and button */
+  }
+  
+  .profile-icon {
+    width: 40px; /* Adjust the size of the profile picture */
+    height: 40px;
+    border-radius: 50%; /* Makes it round */
+    object-fit: cover;
+  }
+  
+  .logout-btn {
+    background-color: transparent;
+    border: none;
+    padding: 5px 10px;
+    font-size: 1rem;
     cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-button:hover {
-    background-color: #0056b3;
-}
-
-/* Photo Preview */
-.img-thumbnail {
-    margin-top: 15px;
-    max-width: 200px;
-}
-
-.form-group img {
-    max-width: 100%;
+    color: #333;
+  }
+  
+  .logout-btn:hover {
+    color: #007bff;
+  }
+  
+  
+  
+  /* Hero Section */
+  #heroCarousel {
+    position: relative;
+  }
+  
+  #heroCarousel .carousel-item img {
+    height: 100vh;
+    object-fit: cover;
+  }
+  
+  .hero-caption {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: white;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+  }
+  
+  .hero-caption h1 {
+    font-size: 3rem;
+    font-weight: bold;
+  }
+  
+  /* Categories Section */
+  #categories {
+    padding: 2rem 0;
+  }
+  
+  .category-card {
+    display: block;
+    text-align: center;
+    color: #333;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .category-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  .category-card img {
+    width: 100%;
     height: auto;
-}
-
-/* Success/Error messages */
-.alert {
-    padding: 10px;
-    border-radius: 5px;
-    font-size: 16px;
-    margin-top: 15px;
-}
-
-.alert-success {
-    background-color: #28a745;
+    border-radius: 10px;
+    margin-bottom: 0.5rem;
+  }
+  
+  .nav-item.dropdown:hover .dropdown-menu {
+    display: block;
+  }
+  
+  .nav-link.dropdown-toggle::after {
+    display: none;
+  }
+  
+  .prof-icon {
+    display: flex;
+  }
+  
+  /* About Us Section */
+  #about img {
+    width: 100%;
+    border-radius: 10px;
+  }
+  
+  #about p {
+    font-size: 1rem;
+    color: #555;
+    line-height: 1.8;
+  }
+  
+  /* Subscription Section */
+  #subscription {
+    background-color: #f8f9fa;
+  }
+  
+  #subscription form input {
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    padding: 0.75rem;
+  }
+  
+  #subscription form input:focus {
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+  }
+  
+  #subscription button {
+    padding: 0.75rem 1.5rem;
+  }
+  
+  /* Footer Styles */
+  .footer {
+    background-color: #001c3a;
     color: white;
-}
-
-.alert-danger {
-    background-color: #dc3545;
+    text-align: center;
+    padding: 1.5rem 0;
+  }
+  
+  .footer .social-icons {
+    margin-top: 1rem;
+  }
+  
+  .footer .social-icons a {
     color: white;
-}
-
-/* Navbar adjustments */
-.navbar .navbar-nav {
-    margin-left: auto;
-}
-
-.navbar-toggler-icon {
-    color: #fff;
-}
-
-/* Make the page more responsive */
-@media (max-width: 768px) {
-    .container {
-        padding: 20px;
+    margin: 0 10px;
+    font-size: 1.2rem;
+    transition: color 0.3s ease-in-out;
+  }
+  
+  .footer .social-icons a:hover {
+    color: #007bff;
+  }
+  
+  /* Responsive Styles */
+  @media (max-width: 768px) {
+    .hero-caption h1 {
+      font-size: 2rem;
     }
-
-    .navbar-brand img {
-        max-width: 100px;
-    }
-
-    button {
-        width: auto;
-    }
-}
+  }
+  
+  
+  #highlight-news {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .news-item {
+    display: flex;
+    gap: 20px;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 20px;
+  }
+  
+  .news-item:last-child {
+    border-bottom: none;
+  }
+  
+  .news-image {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 8px;
+  }
+  
+  .news-content {
+    flex: 1;
+  }
+  
+  .news-category {
+    color: #D20082;
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  
+  .news-title {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 0 0 10px;
+  }
+  
+  .news-description {
+    font-size: 14px;
+    color: #555;
+  }
+  
+  #highlight-news {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .news-item {
+    display: flex;
+    gap: 20px;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 20px;
+    text-decoration: none; 
+    color: inherit; 
+    transition: background-color 0.3s, transform 0.2s; 
+  }
+  
+  .news-item:last-child {
+    border-bottom: none;
+  }
+  
+  .news-item:hover {
+    background-color: #f9f9f9; 
+    transform: scale(1.02); 
+  }
+  
+  .news-image {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 8px;
+  }
+  
+  .news-content {
+    flex: 1;
+  }
+  
+  .news-category {
+    color: #D20082;
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  
+  .news-title {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 0 0 10px;
+  }
+  
+  .news-description {
+    font-size: 14px;
+    color: #555;
+  }
+  

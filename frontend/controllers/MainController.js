@@ -1,3 +1,4 @@
+// frontend/controllers/ProfileController.js
 function MainController($scope, SubscriptionService) {
     $scope.email = '';
     $scope.password = '';
