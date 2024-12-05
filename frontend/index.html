@@ -48,50 +48,12 @@
             <a class="nav-link" href="community.html">Community</a>
           </li>
           <li class="nav-item">
-            <button class="btn btn-primary gradient-btn" data-bs-toggle="modal" data-bs-target="#loginModal">Login</button>
+            <a class="nav-link" href="Login.html">Login</a>
           </li>       
         </ul>
       </div>
     </div>
   </nav>
-
- <!-- Modal Login -->
- <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="loginModalLabel" ng-if="!isRegisterForm">Login</h5>
-        <h5 class="modal-title" id="loginModalLabel" ng-if="isRegisterForm">Register</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <!-- Login Form -->
-        <div ng-show="!isRegisterForm">
-          
-          <input type="email" ng-model="login.email" placeholder="Email" required class="form-control mb-3">
-          <input type="password" ng-model="login.password" placeholder="Password" required class="form-control mb-3">
-          <button ng-click="loginSubmit()" class="btn btn-primary w-100">Login</button>
-          <br>
-          <br>
-          <button class="btn btn-primary w-100" ng-click="toggleForm('register')">Register</button>
-        </div>
-        <!-- Register Form -->
-        <div ng-show="isRegisterForm">
-         
-          <input type="text" ng-model="register.fullName" placeholder="Full Name" required class="form-control mb-3">
-          <input type="email" ng-model="register.email" placeholder="Email" required class="form-control mb-3">
-          <input type="password" ng-model="register.password" placeholder="Password" required class="form-control mb-3">
-          <input type="date" ng-model="register.birthdate" placeholder="Birthdate" required class="form-control mb-3">
-          <button ng-click="registerSubmit()" class="btn btn-primary w-100">Register</button>
-          <br>
-          <br>
-          <button class="btn btn-primary w-100" ng-click="toggleForm('login')">Login</button>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
 
 
 <!-- Hero Section with Video Carousel -->
@@ -99,7 +61,7 @@
   <div class="carousel-inner">
     <div class="carousel-item active">
       <video class="d-block w-100" autoplay loop muted>
-        <source src="/FrontUAS/frontend/vid/live.mp4" type="video/mp4">
+        <source src="/frontend/vid/live.mp4" type="video/mp4">
       </video>
       <div class="hero-caption">
         <h1>Healthy Living</h1>
@@ -107,7 +69,7 @@
     </div>
     <div class="carousel-item">
       <video class="d-block w-100" autoplay loop muted>
-        <source src="/FrontUAS/frontend/vid/food.mp4" type="video/mp4">
+        <source src="/frontend/vid/food.mp4" type="video/mp4">
       </video>
       <div class="hero-caption">
         <h1>Healthy Guts</h1>
@@ -115,7 +77,7 @@
     </div>
     <div class="carousel-item">
       <video class="d-block w-100" autoplay loop muted>
-        <source src="/FrontUAS/frontend/vid/hap.mp4" type="video/mp4">
+        <source src="/frontend/vid/hap.mp4" type="video/mp4">
       </video>
       <div class="hero-caption">
         <h1>Healthy Mental</h1>
@@ -173,6 +135,7 @@
       </div>
     </div>
   </div>
+  <hr>
   
   <!-- Subscription Section -->
   <div id="subscription" class="bg-light py-5">
@@ -180,19 +143,13 @@
       <h2 class="mb-4">Stay Updated!</h2>
       <form class="row g-3 justify-content-center" ng-submit="subscribe()" novalidate>
         <div class="col-md-6">
-          <input
-            type="email"
-            class="form-control"
-            id="email"
-            placeholder="Enter your email address"
-            ng-model="email"
-            required
-          />
-        </div>
-        <div class="col-auto">
-          <button type="submit" class="btn btn-primary">Subscribe</button>
-        </div>
-      </form>
+          <div ng-controller="SubscriptionController">
+            <form ng-submit="subscribe()">
+                <label for="email">Email:</label>
+                <input type="email" id="email" ng-model="email" required>
+                <button type="submit" class="btn btn-primary">Subscribe</button>
+            </form>
+        </div>        
       <div class="mt-4" ng-if="message">
         <p class="alert alert-success">{{ message }}</p>
       </div>
@@ -215,38 +172,6 @@
   <!-- Scripts -->
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.min.js"></script>
-  <script>
-    // Tambahkan event listener untuk menangani scroll
-window.addEventListener('scroll', function () {
-  const navbar = document.querySelector('.navbar');
-  if (window.scrollY > 50) { // Jika scroll lebih dari 50px
-    navbar.classList.add('scrolled');
-  } else {
-    navbar.classList.remove('scrolled');
-  }
-});
-
-angular.module('lifestyleApp', [])
-.controller('MainController', function ($scope) {
-  $scope.isRegisterForm = false; // Default form is Login
-
-  // Toggle between Login and Register form
-  $scope.toggleForm = function () {
-    $scope.isRegisterForm = !$scope.isRegisterForm;
-  };
-
-  // Login form submit
-  $scope.loginSubmit = function () {
-    // Handle login logic here (you can use $scope.login.email and $scope.login.password)
-    console.log('Login with:', $scope.login);
-  };
-
-  // Register form submit
-  $scope.registerSubmit = function () {
-    // Handle register logic here (you can use $scope.register)
-    console.log('Register with:', $scope.register);
-  };
-});
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>

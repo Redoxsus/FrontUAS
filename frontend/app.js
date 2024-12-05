@@ -14,8 +14,4 @@ function SubscriptionService($http) {
     this.login = function (data) {
         return $http.post('http://localhost:3000/api/login', data);
     };
-
-    this.subscribe = function (email) {
-        return $http.post('http://localhost:3000/api/subscribe', { email: email });
-    };
 }
