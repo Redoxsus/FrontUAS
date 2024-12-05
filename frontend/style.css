@@ -99,35 +99,48 @@ h1, h2, h3, h4, h5, h6 {
   box-shadow: 0 4px 2px -2px gray; /* Tambahkan bayangan */
   transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
-
 /* Flexbox container to align profile icon and logout button */
-.navbar .nav-item.d-flex {
+.nav-item.d-flex {
   display: flex;
   align-items: center; /* Ensures the items are vertically aligned */
-  gap: 40px; /* Adjusts space between the icon and button */
+  gap: 10px; /* Adjust the space between the icon and button */
 }
 
+/* Profile Icon Styling */
 .profile-icon {
-  width: 40px; /* Adjust the size of the profile picture */
-  height: 40px;
-  border-radius: 50%; /* Makes it round */
-  object-fit: cover;
+  font-size: 32px; /* Ukuran ikon lebih besar */
+  color: #007bff; /* Warna sesuai tema */
+  transition: color 0.3s ease-in-out;
 }
 
+.profile-icon:hover {
+  color: #0056b3; /* Warna lebih gelap saat hover */
+}
+
+
+/* Logout Button Styling */
 .logout-btn {
   background-color: transparent;
-  border: none;
+  border: 1px solid #007bff; /* Add a border for better visibility */
   padding: 5px 10px;
-  font-size: 1rem;
+  font-size: 0.9rem;
+  border-radius: 5px;
+  color: #007bff;
   cursor: pointer;
-  color: #333;
+  transition: all 0.3s ease-in-out;
 }
 
 .logout-btn:hover {
-  color: #007bff;
+  background-color: #007bff;
+  color: white;
 }
 
-
+/* Responsiveness for smaller screens */
+@media (max-width: 768px) {
+  .profile-icon {
+    font-size: 28px; /* Sedikit lebih kecil di layar kecil */
+  }
+}
 
 /* Hero Section */
 #heroCarousel {
