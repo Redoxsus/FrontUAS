@@ -1,0 +1,139 @@
+/* General body and layout styles */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f7f6;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar {
+    background-color: #007bff;
+}
+
+.navbar-brand img {
+    max-width: 120px;
+}
+
+.navbar-nav .nav-link {
+    color: white !important;
+}
+
+.navbar-nav .nav-link:hover {
+    color: #f8f9fa !important;
+}
+
+.container {
+    margin-top: 80px;
+    padding: 30px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Form styles */
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    font-weight: bold;
+    color: #333;
+}
+
+input[type="text"],
+input[type="email"],
+textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+input[type="file"] {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 10px;
+    margin-top: 5px;
+}
+
+textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+/* Button Styles */
+button {
+    width: 100%;
+    padding: 12px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+/* Photo Preview */
+.img-thumbnail {
+    margin-top: 15px;
+    max-width: 200px;
+}
+
+.form-group img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Success/Error messages */
+.alert {
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 16px;
+    margin-top: 15px;
+}
+
+.alert-success {
+    background-color: #28a745;
+    color: white;
+}
+
+.alert-danger {
+    background-color: #dc3545;
+    color: white;
+}
+
+/* Navbar adjustments */
+.navbar .navbar-nav {
+    margin-left: auto;
+}
+
+.navbar-toggler-icon {
+    color: #fff;
+}
+
+/* Make the page more responsive */
+@media (max-width: 768px) {
+    .container {
+        padding: 20px;
+    }
+
+    .navbar-brand img {
+        max-width: 100px;
+    }
+
+    button {
+        width: auto;
+    }
+}

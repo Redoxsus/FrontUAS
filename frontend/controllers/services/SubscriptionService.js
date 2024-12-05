@@ -1,13 +1,27 @@
-angular.module('lifestyleApp').service('SubscriptionService', ['$http', function($http) {
+app.service('SubscriptionService', function($http) {
+    const apiUrl = 'http://localhost:3000/api'; // Ganti dengan URL API kamu
+
     this.subscribe = function(email) {
-        return $http.post('http://localhost:3000/api/subscribe', { email: email });
+        return $http.post(`${apiUrl}/subscribe`, { email });
     };
 
-    this.register = function(data) {
-        return $http.post('http://localhost:3000/api/register', data);
+    this.register = function(user) {
+        return $http.post(`${apiUrl}/register`, user);
     };
 
-    this.login = function(data) {
-        return $http.post('http://localhost:3000/api/login', data);
+    this.login = function(credentials) {
+        return $http.post(`${apiUrl}/login`, credentials);
     };
-}]);
+
+    this.getProfile = function(token) {
+        return $http.get(`${apiUrl}/profile`, { headers: { 'Authorization': `Bearer ${token}` } });
+    };
+
+    this.updateProfile = function(profileData, token) {
+        return $http.put(`${apiUrl}/profile`, profileData, { headers: { 'Authorization': `Bearer ${token}` } });
+    };
+
+    this.deleteAccount = function(token) {
+        return $http.delete(`${apiUrl}/profile`, { headers: { 'Authorization': `Bearer ${token}` } });
+    };
+});

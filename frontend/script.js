@@ -1,31 +1,32 @@
-    // Tambahkan event listener untuk menangani scroll
-    window.addEventListener('scroll', function () {
-        const navbar = document.querySelector('.navbar');
-        if (window.scrollY > 50) { // Jika scroll lebih dari 50px
-          navbar.classList.add('scrolled');
-        } else {
-          navbar.classList.remove('scrolled');
-        }
-      });
-      
-      angular.module('lifestyleApp', [])
-      .controller('MainController', function ($scope) {
-        $scope.isRegisterForm = false; // Default form is Login
-      
-        // Toggle between Login and Register form
-        $scope.toggleForm = function () {
-          $scope.isRegisterForm = !$scope.isRegisterForm;
-        };
-      
-        // Login form submit
-        $scope.loginSubmit = function () {
-          // Handle login logic here (you can use $scope.login.email and $scope.login.password)
-          console.log('Login with:', $scope.login);
-        };
-      
-        // Register form submit
-        $scope.registerSubmit = function () {
-          // Handle register logic here (you can use $scope.register)
-          console.log('Register with:', $scope.register);
-        };
-      });
+document.addEventListener("DOMContentLoaded", () => {
+  const loginBtn = document.getElementById("login-btn");
+  const userMenu = document.getElementById("user-menu");
+  const logoutBtn = document.getElementById("logout-btn");
+  const userIcon = userMenu.querySelector("img");
+
+  // Cek token untuk menentukan apakah pengguna sudah login
+  const token = localStorage.getItem("token");
+  if (token) {
+    loginBtn.classList.add("d-none");
+    userMenu.classList.remove("d-none");
+
+    // Ambil data profil pengguna
+    fetch('http://localhost:3000/api/profile', {
+      headers: { 'Authorization': 'Bearer ' + token }
+    })
+    .then(response => response.json())
+    .then(data => {
+      userIcon.src = data.profile.profile_picture || 'img/default-avatar.png'; // Ganti dengan gambar profil
+    })
+    .catch(error => console.error('Error fetching profile:', error));
+  } else {
+    loginBtn.classList.remove("d-none");
+    userMenu.classList.add("d-none");
+  }
+
+  // Logout
+  logoutBtn.addEventListener("click", () => {
+    localStorage.removeItem("token");
+    window.location.href = "index.html"; // Redirect ke halaman utama
+  });
+});

@@ -1,11 +1,23 @@
-/* Global Styles */
-body {
-  font-family: 'Arial', sans-serif;
+/* Buat body dan html menggunakan flexbox untuk mengisi layar */
+html, body {
+  height: 100%;
   margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  line-height: 1.6;
-  scroll-behavior: smooth;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Layout untuk konten utama */
+.main-content {
+  flex: 1;
+}
+
+/* Styling untuk footer */
+.footer {
+  text-align: center;
+  padding: 20px;
+  background-color: #f8f9fa;
+  position: relative;
+  width: 100%;
 }
 
 a {
@@ -152,23 +164,22 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Subscription Section */
 #subscription {
-  text-align: center;
-  background-color: #f9f9f9;
+  background-color: #f8f9fa;
 }
 
-#subscription .form-control {
-  border-radius: 30px;
-  padding: 0.75rem 1rem;
+#subscription form input {
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+  padding: 0.75rem;
 }
 
-#subscription .btn-primary {
-  border-radius: 30px;
-  padding: 0.5rem 1.5rem;
+#subscription form input:focus {
+  outline: none;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
 }
 
-#subscription .alert {
-  display: inline-block;
-  width: auto;
+#subscription button {
+  padding: 0.75rem 1.5rem;
 }
 
 /* Footer Styles */
