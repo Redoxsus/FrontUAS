@@ -27,6 +27,6 @@ document.addEventListener("DOMContentLoaded", () => {
   // Logout
   logoutBtn.addEventListener("click", () => {
     localStorage.removeItem("token");
-    window.location.href = "index.html"; // Redirect ke halaman utama
+    window.location.href = "index.html"; 
   });
 });

@@ -12,41 +12,73 @@
 </head>
 <body ng-controller="ArticleController">
 
-      <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg navbar-light fixed-top">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="#">
-        <img src="img/Logo.png" alt="Luxury Properties Logo" />
-      </a>
-      <button
-        class="navbar-toggler"
-        type="button"
-        data-bs-toggle="collapse"
-        data-bs-target="#navbarNav"
-        aria-controls="navbarNav"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-light fixed-top">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">
+      <img src="img/Logo.png" alt="Logo" />
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="index.html">Home</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Categories
+          </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <li>
+                  <a class="dropdown-item d-flex align-items-center" href="category.html?category=fitness">
+                    <img src="https://pbs.twimg.com/profile_images/1738692664600428545/_Q4Y5a0L_400x400.jpg" alt="Fitness" style="width: 20px; height: 20px; margin-right: 8px;">
+                    Fitness & Sports
+                  </a>
+                </li>
+                <li>
+                  <a class="dropdown-item d-flex align-items-center" href="category.html?category=healthy-foods">
+                    <img src="https://levanacooks.com/wp-content/uploads/2022/05/9A78643B-C0D2-4E92-938A-36B6CDA8F2AC-400x400.jpeg" alt="Healthy Foods" style="width: 20px; height: 20px; margin-right: 8px;">
+                    Healthy Foods
+                  </a>
+                </li>
+                <li>
+                  <a class="dropdown-item d-flex align-items-center" href="category.html?category=mental-health">
+                    <img src="https://i.pinimg.com/736x/25/82/81/2582813a37978661de74b287d5f69a47.jpg" alt="Stable Mental" style="width: 20px; height: 20px; margin-right: 8px;">
+                    Stable Mental
+                  </a>
+                </li>
+                <li>
+                  <a class="dropdown-item d-flex align-items-center" href="category.html?category=fashion-trends">
+                    <img src="https://asset2.cxnmarksandspencer.com/is/image/mands/1229_20210531_LF_MW_MENS-STYLE_BSLH-8381_2?$editorial_780x780$" alt="Fashion Trends" style="width: 20px; height: 20px; margin-right: 8px;">
+                    Fashion Trends
+                  </a>
+                </li>
+              </ul>
+            </li>
+        
+        <li class="nav-item">
+          <a class="nav-link" href="#about">About</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="community.html">Community</a>
+        </li>
+        <!-- Profile or Login Link -->
         <ul class="navbar-nav ms-auto">
-          <li class="nav-item">
-            <a class="nav-link" href="index.html">Home</a>
+          <li class="nav-item" id="login-btn">
+            <a class="nav-link" href="login.html">Login</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#categories">Categories</a>
+          <li class="nav-item d-none" id="user-menu">
+            <a class="nav-link" href="profile.html">
+              <img src="img/default-avatar.png" alt="User  Icon" style="width: 30px; height: 30px;" />
+            </a>
+            <a class="nav-link" href="#" id="logout-btn">Logout</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#about">About</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#contact">Community</a>
-          </li>   
         </ul>
-      </div>
     </div>
-  </nav>
+  </div>
+</nav>
 
 
   <!-- Article Content -->
