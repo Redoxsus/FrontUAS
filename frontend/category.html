@@ -9,6 +9,8 @@
   <link rel="stylesheet" href="style.css">
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
   <script src="https://unpkg.com/@phosphor-icons/web"></script>
+  <script src="sc1.js"> </script>
+  <script src="script/category.js"></script> 
 </head>
 <body ng-controller="CategoryController">
 
@@ -64,7 +66,7 @@
         <li class="nav-item">
           <a class="nav-link" href="community.html">Community</a>
         </li>
-        <!-- Profile or Login Link -->
+        <!-- Profile or Login -->
         <ul class="navbar-nav ms-auto">
           <li class="nav-item" id="login-btn">
             <a class="nav-link" href="login.html">Login</a>
@@ -80,7 +82,7 @@
   </div>
 </nav>
 
-  <!-- Category Header -->
+  <!-- Category  -->
   <header class="category-header bg-light py-5">
     <div class="container text-center">
       <h1 class="mb-3">{{ currentCategory.name }}</h1>
@@ -88,7 +90,7 @@
     </div>
   </header>
 
-  <!-- Articles Section -->
+  <!-- Artikel -->
   <div class="container my-5">
     <div class="row">
       <div class="col-md-4 mb-4" ng-repeat="article in filteredArticles">
@@ -97,7 +99,7 @@
           <div class="card-body">
             <h5 class="card-title">{{article.title}}</h5>
             <p class="card-text">{{article.description}}</p>
-            <!-- Ganti link dengan tombol Read More -->
+           
             <a ng-href="article.html?category={{currentCategory.name | lowercase}}&id={{article.id}}" class="btn btn-primary">Read More</a>
           </div>
         </div>
@@ -113,18 +115,5 @@
       <a href="#"><i class="fab fa-instagram"></i></a>
     </div>
   </footer>
-
-  <script>
-    window.addEventListener('scroll', function () {
-      const navbar = document.querySelector('.navbar');
-      if (window.scrollY > 50) {
-        navbar.classList.add('scrolled');
-      } else {
-        navbar.classList.remove('scrolled');
-      }
-    });
-  </script>
-  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
-  <script src="script/category.js"></script> <!-- AngularJS logic moved here -->
 </body>
 </html>
