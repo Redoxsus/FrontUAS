@@ -1,10 +1,10 @@
 angular.module('authApp', [])
   .controller('AuthController', function ($scope, $http) {
-    $scope.isLogin = true; // Default mode is login
-    $scope.isLoggedIn = false; // Default logged-out status
+    $scope.isLogin = true; 
+    $scope.isLoggedIn = false; 
     $scope.formData = {};
 
-    // Check if the user is logged in by checking the token
+    // Mengecek apakah user sudah login atau belum
     $scope.checkLoginStatus = function () {
       const token = localStorage.getItem('token');
       if (token) {
@@ -17,7 +17,7 @@ angular.module('authApp', [])
       $scope.formData = {}; // Reset form data
     };
 
-    // Submit login or register form
+    // Form untuk login dan register
     $scope.submitForm = function () {
       const url = $scope.isLogin ? 'http://localhost:3000/api/login' : 'http://localhost:3000/api/register';
       $http.post(url, $scope.formData)
@@ -34,13 +34,12 @@ angular.module('authApp', [])
         });
     };
 
-    // Logout function
+    // Logout 
     $scope.logout = function () {
       localStorage.removeItem('token');
       $scope.isLoggedIn = false;
       window.location.href = 'index.html';
     };
 
-    // Call the checkLoginStatus on controller initialization
     $scope.checkLoginStatus();
   });

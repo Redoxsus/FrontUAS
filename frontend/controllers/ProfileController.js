@@ -5,13 +5,13 @@ angular.module('profileApp', [])
     $scope.errorMessage = '';
     $scope.successMessage = '';
 
-    // Check login status before displaying profile
+   
     const token = localStorage.getItem('token');
     if (!token) {
       window.location.href = 'index.html';
     }
 
-    // Fetch user profile data
+  
     $http.get('http://localhost:3000/api/profile', { headers: { 'Authorization': 'Bearer ' + token } })
       .then(function (response) {
         $scope.profile = response.data.profile;
@@ -20,7 +20,7 @@ angular.module('profileApp', [])
         $scope.errorMessage = 'Failed to load profile data.';
       });
 
-// Update profile function
+// Update profile 
 $scope.updateProfile = function () {
     const token = localStorage.getItem('token');
     if (!$scope.profile.first_name || !$scope.profile.last_name) {
@@ -28,11 +28,11 @@ $scope.updateProfile = function () {
       return;
     }
   
-    // Send PUT request to update profile
+ 
     $http.put('http://localhost:3000/api/profile', {
-      firstName: $scope.profile.first_name, // Change to firstName
-      lastName: $scope.profile.last_name,   // Change to lastName
-      bio: $scope.profile.bio // Send bio
+      firstName: $scope.profile.first_name, 
+      lastName: $scope.profile.last_name,  
+      bio: $scope.profile.bio 
     }, {
       headers: {
         'Authorization': 'Bearer ' + token
@@ -40,15 +40,15 @@ $scope.updateProfile = function () {
     })
     .then(function (response) {
       $scope.successMessage = 'Profile updated successfully!';
-      $scope.errorMessage = ''; // Clear previous error message
+      $scope.errorMessage = ''; 
     })
     .catch(function (error) {
       $scope.errorMessage = 'Failed to update profile.';
-      $scope.successMessage = ''; // Clear previous success message
+      $scope.successMessage = ''; 
     });
   };
 
-    // Delete bio function
+    // Delete bio 
     $scope.deleteBio = function () {
       const token = localStorage.getItem('token');
       if (confirm('Are you sure you want to delete your bio?')) {
@@ -60,7 +60,7 @@ $scope.updateProfile = function () {
         .then(function (response) {
           $scope.successMessage = 'Bio deleted successfully!';
           $scope.errorMessage = '';
-          $scope.profile.bio = null; // Reset bio in the profile object
+          $scope.profile.bio = null; 
         })
         .catch(function (error) {
           $scope.errorMessage = 'Failed to delete bio.';
@@ -69,7 +69,7 @@ $scope.updateProfile = function () {
       }
     };
 
-    // Delete account function
+    // Delete account 
     $scope.deleteAccount = function () {
       const token = localStorage.getItem('token');
       if (confirm('Are you sure you want to delete your account? This action cannot be undone.')) {
@@ -79,13 +79,13 @@ $scope.updateProfile = function () {
         .then(function (response) {
           $scope.successMessage = 'Account deleted successfully!';
           $scope.errorMessage = '';
-          localStorage.removeItem('token'); // Remove token after deletion
-          window.location.href = 'index.html'; // Redirect to home
+          localStorage.removeItem('token'); 
+          window.location.href = 'index.html'; 
         })
         .catch(function (error) {
           $scope.errorMessage = 'Failed to delete account.';
           $scope.successMessage = '';
         });
-      }
-    };
-  });
+      }
+    };
+  });

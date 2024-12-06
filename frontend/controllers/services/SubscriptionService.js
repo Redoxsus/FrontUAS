@@ -1,6 +1,6 @@
 app.service('SubscriptionService', function($http) {
-    const apiUrl = 'http://localhost:3000/api'; // Ganti dengan URL API kamu
-
+    const apiUrl = 'http://localhost:3000/api'; 
+    
     this.subscribe = function(email) {
         return $http.post(`${apiUrl}/subscribe`, { email });
     };

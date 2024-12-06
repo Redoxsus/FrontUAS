@@ -90,7 +90,7 @@ function MainController($scope, SubscriptionService) {
             });
     };
 
-    // Membaca data profil pengguna (Read)
+    // Membaca data profil pengguna 
     $scope.getProfile = function () {
         const token = localStorage.getItem('token');
         if (token) {
@@ -110,7 +110,7 @@ function MainController($scope, SubscriptionService) {
         }
     };
 
-    // Update profil pengguna (Update)
+    // Update profil pengguna 
     $scope.updateProfile = function () {
         const token = localStorage.getItem('token');
         if (!$scope.profileData.name || !$scope.profileData.email) {
@@ -131,7 +131,7 @@ function MainController($scope, SubscriptionService) {
             });
     };
 
-    // Menghapus akun pengguna (Delete)
+    // Menghapus akun pengguna 
     $scope.deleteAccount = function () {
         const token = localStorage.getItem('token');
         if (token) {
@@ -141,7 +141,7 @@ function MainController($scope, SubscriptionService) {
                     $scope.error = '';
                     localStorage.removeItem('token');
                     $scope.isLoggedIn = false;
-                    window.location.href = 'index.html'; // Redirect ke halaman utama setelah delete
+                    window.location.href = 'index.html'; 
                 })
                 .catch(function (error) {
                     console.log(error);
