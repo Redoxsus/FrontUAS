@@ -1,221 +1,218 @@
-   /* Reset margin dan padding untuk seluruh elemen */
-   * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+html, body {
+  height: 100%;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.main-content {
+  flex-grow: 1; 
+  padding: 20px;
+}
+
+
+.footer {
+  text-align: center;
+  padding: 20px;
+  background-color: #f8f9fa;
+  width: 100%;
+  margin-top: auto; 
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 600;
+}
+
+/* Navbar Styles */
+.navbar {
+  background-color: transparent;
+  padding: 0.5rem 1rem; 
+  transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.navbar.scrolled {
+  background-color: #f8f9fa;
+  box-shadow: 0 4px 2px -2px gray;
+}
+
+.navbar-brand img {
+  height: 50px; 
+  width: auto;
+}
+
+.navbar .nav {
+  list-style-type: none;
+  padding: 0;
+}
+
+.navbar .nav li {
+  display: inline;
+  margin-right: 10px;
+}
+
+.navbar .nav a {
+  text-decoration: none;
+  color: black;
+}
+
+.navbar .navbar-brand {
+  font-size: 1.5rem;
+}
+
+.navbar .nav-link {
+  color: #333;
+  margin-right: 10px;
+  padding: 0.5rem 0.75rem;
+  transition: color 0.3s ease-in-out;
+}
+
+.navbar .nav-link:hover {
+  color: #007bff;
+}
+
+.navbar .gradient-btn {
+  background: linear-gradient(45deg, #007bff, #6610f2);
+  border: none;
+  color: white;
+  padding: 8px 10px;
+  border-radius: 20px;
+  font-size: 0.87rem;
+}
+
+.navbar .gradient-btn:hover {
+  background: linear-gradient(45deg, #6610f2, #007bff);
+}
+
+
+.navbar.scrolled {
+  background-color: #f8f9fa; 
+  box-shadow: 0 4px 2px -2px gray; 
+  transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+
+.navbar .nav-item.d-flex {
+  display: flex;
+  align-items: center; 
+  gap: 40px; 
+}
+
+
+
+.footer {
+  background-color: #001c3a;
+  color: white;
+  text-align: center;
+  padding: 1.5rem 0;
+}
+
+.footer .social-icons {
+  margin-top: 1rem;
+}
+
+.footer .social-icons a {
+  color: white;
+  margin: 0 10px;
+  font-size: 1.2rem;
+  transition: color 0.3s ease-in-out;
+}
+
+.footer .social-icons a:hover {
+  color: #007bff;
+}
+
+
+@media (max-width: 768px) {
+  .hero-caption h1 {
+    font-size: 2rem;
   }
-
-  /* Buat body dan html menggunakan flexbox untuk mengisi layar */
-  html, body {
-    height: 100%;
-    margin: 0;
-    display: flex;
-    flex-direction: column;
-  }
-
-  /* Layout untuk konten utama */
-  .main-content {
-    flex-grow: 1; /* Membuat konten utama mengisi ruang yang tersisa */
-    padding: 20px;
-  }
-
-  /* Styling untuk footer */
-  .footer {
-    text-align: center;
-    padding: 20px;
-    background-color: #f8f9fa;
-    width: 100%;
-    margin-top: auto; 
-  }
-
-  a {
-    text-decoration: none;
-    color: inherit;
-  }
-
-  h1, h2, h3, h4, h5, h6 {
-    font-weight: 600;
-  }
-
-  /* Navbar Styles */
-  .navbar {
-    background-color: transparent;
-    padding: 0.5rem 1rem; /* Kurangi padding untuk mengecilkan navbar */
-    transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-  }
-
-  .navbar.scrolled {
-    background-color: #f8f9fa;
-    box-shadow: 0 4px 2px -2px gray;
-  }
-
-  .navbar-brand img {
-    height: 50px; /* Sesuaikan ukuran logo */
-    width: auto;
-  }
-
-  .navbar .nav {
-    list-style-type: none;
-    padding: 0;
-  }
-
-  .navbar .nav li {
-    display: inline;
-    margin-right: 10px;
-  }
-
-  .navbar .nav a {
-    text-decoration: none;
-    color: black;
-  }
-
-  .navbar .navbar-brand {
-    font-size: 1.5rem;
-  }
-
-  .navbar .nav-link {
-    color: #333;
-    margin-right: 10px;
-    padding: 0.5rem 0.75rem;
-    transition: color 0.3s ease-in-out;
-  }
-
-  .navbar .nav-link:hover {
-    color: #007bff;
-  }
-
-  .navbar .gradient-btn {
-    background: linear-gradient(45deg, #007bff, #6610f2);
-    border: none;
-    color: white;
-    padding: 8px 10px;
-    border-radius: 20px;
-    font-size: 0.87rem; /* Perkecil ukuran tombol */
-  }
-
-  .navbar .gradient-btn:hover {
-    background: linear-gradient(45deg, #6610f2, #007bff);
-  }
-
-  /* Efek untuk navbar saat di-scroll */
-  .navbar.scrolled {
-    background-color: #f8f9fa; /* Ubah warna latar belakang saat di-scroll */
-    box-shadow: 0 4px 2px -2px gray; /* Tambahkan bayangan */
-    transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-  }
-
-  /* Flexbox container untuk menyelaraskan icon profil dan tombol logout */
-  .navbar .nav-item.d-flex {
-    display: flex;
-    align-items: center; /* Memastikan item sejajar secara vertikal */
-    gap: 40px; /* Mengatur jarak antara icon dan tombol */
-  }
+}
 
 
-  /* Footer Styles */
-  .footer {
-    background-color: #001c3a;
-    color: white;
-    text-align: center;
-    padding: 1.5rem 0;
-  }
-
-  .footer .social-icons {
-    margin-top: 1rem;
-  }
-
-  .footer .social-icons a {
-    color: white;
-    margin: 0 10px;
-    font-size: 1.2rem;
-    transition: color 0.3s ease-in-out;
-  }
-
-  .footer .social-icons a:hover {
-    color: #007bff;
-  }
-
-  /* Responsive Styles */
-  @media (max-width: 768px) {
-    .hero-caption h1 {
-      font-size: 2rem;
-    }
-  }
-
-  /* Form Styling */
 .form-group {
-    margin-bottom: 1.5rem;
+  margin-bottom: 1.5rem;
 }
 
 .form-control {
-    border-radius: 8px;
-    border: 1px solid #ccc;
-    padding: 10px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  padding: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
 }
 
 .form-control:focus {
-    border-color: #007bff;
-    box-shadow: 0 0 8px rgba(0, 123, 255, 0.2);
+  border-color: #007bff;
+  box-shadow: 0 0 8px rgba(0, 123, 255, 0.2);
 }
 
 textarea.form-control {
-    resize: vertical;
+  resize: vertical;
 }
 
 button {
-    border-radius: 25px;
-    padding: 12px 30px;
-    font-size: 1rem;
-    transition: background-color 0.3s ease;
+  border-radius: 25px;
+  padding: 12px 30px;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
 }
 
-/* Button Styles */
+
 .btn-primary {
-    background-color: #007bff;
-    border: none;
-    color: white;
+  background-color: #007bff;
+  border: none;
+  color: white;
 }
 
 .btn-primary:hover {
-    background-color: #0056b3;
+  background-color: #0056b3;
 }
 
-/* Delete buttons with different color */
+
 .btn-danger {
-    background-color: #dc3545;
-    border: none;
-    color: white;
+  background-color: #dc3545;
+  border: none;
+  color: white;
 }
 
 .btn-danger:hover {
-    background-color: #c82333;
+  background-color: #c82333;
 }
 
-/* Profile Header */
+
 h2 {
-    font-size: 2rem;
-    font-weight: 600;
-    color: #333;
-    margin-bottom: 2rem;
+  font-size: 2rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 2rem;
 }
 
-/* Success & Error Messages */
+
 .alert {
-    border-radius: 5px;
-    padding: 15px;
-    font-size: 1rem;
-    margin-top: 1.5rem;
+  border-radius: 5px;
+  padding: 15px;
+  font-size: 1rem;
+  margin-top: 1.5rem;
 }
 
 .alert-success {
-    background-color: #28a745;
-    color: white;
+  background-color: #28a745;
+  color: white;
 }
 
 .alert-danger {
-    background-color: #dc3545;
-    color: white;
+  background-color: #dc3545;
+  color: white;
 }
-

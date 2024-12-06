@@ -1,181 +1,180 @@
 body {
-    font-family: Arial, sans-serif;
-    margin: 20px;
-    background-color: #f4f4f9;
+  font-family: Arial, sans-serif;
+  margin: 20px;
+  background-color: #f4f4f9;
 }
 
 /* Navbar Styles */
 .navbar {
-    background-color: transparent;
-    padding: 0.5rem 1rem; 
-    transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-  }
-  
-  .navbar.scrolled {
-    background-color: #f8f9fa;
-    box-shadow: 0 4px 2px -2px gray;
-  }
-  
-  .navbar-brand img {
-    height: 50px; 
-    width: auto;
-  }
-  
-  .navbar .nav {
-    list-style-type: none;
-    padding: 0;
-  }
-  
-  .navbar .nav li {
-    display: inline;
-    margin-right: 10px;
-  }
-  
-  .navbar .nav a {
-    text-decoration: none;
-    color: black;
-  }
-  
-  .navbar .navbar-brand {
-    font-size: 1.5rem;
-  }
-  
-  .content {
-    padding: 20px;
-  }
-  
-  .navbar .nav-link {
-    color: #333;
-    margin-right: 10px;
-    padding: 0.5rem 0.75rem; /* Kurangi padding untuk mengecilkan link */
-    transition: color 0.3s ease-in-out;
-  }
-  
-  .navbar .nav-link:hover {
-    color: #007bff;
-  }
-  
-
-.container {
-    max-width: 600px;
-    margin: 0 auto;
-    background: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    margin-top: 100px;
+  background-color: transparent;
+  padding: 0.5rem 1rem; 
+  transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
 
-h1 {
-    text-align: center;
-    color: #333;
+.navbar.scrolled {
+  background-color: #f8f9fa;
+  box-shadow: 0 4px 2px -2px gray;
 }
 
-.form-group {
-    margin-bottom: 15px;
+.navbar-brand img {
+  height: 50px; 
+  width: auto;
 }
 
-.form-group label {
-    display: block;
-    margin-bottom: 5px;
-    font-weight: bold;
+.navbar .nav {
+  list-style-type: none;
+  padding: 0;
 }
 
-.form-group input, .form-group textarea {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+.navbar .nav li {
+  display: inline;
+  margin-right: 10px;
 }
 
-.form-group button {
-    background-color: #007bff;
-    color: #fff;
-    padding: 10px 15px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
+.navbar .nav a {
+  text-decoration: none;
+  color: black;
 }
 
-.form-group button:hover {
-    background-color: #0056b3;
+.navbar .navbar-brand {
+  font-size: 1.5rem;
 }
 
-.question {
-    background: #f9f9f9;
-    padding: 15px;
-    margin-bottom: 10px;
-    border-radius: 5px;
-    border: 1px solid #ddd;
+.content {
+  padding: 20px;
 }
 
-.question h3 {
-    margin: 0 0 10px;
-    color: #007bff;
-}
-
-.question p {
-    margin: 0;
-}
-
-.actions {
-    margin-top: 10px;
-}
-
-.actions button {
-    margin-right: 5px;
-    padding: 5px 10px;
-    border: none;
-    border-radius: 3px;
-    cursor: pointer;
-}
-
-.actions .edit {
-    background-color: #ffc107;
-    color: #fff;
-}
-
-.actions .delete {
-    background-color: #dc3545;
-    color: #fff;
-}
-
-.actions .save {
-    background-color: #28a745;
-    color: #fff;
-}
-
-.actions button:hover {
-    opacity: 0.9;
-}
-
-/* Footer Styles */
-.footer {
-  background-color: #001c3a;
-  color: white;
-  text-align: center;
-  padding: 1.5rem 0;
-  margin-top: 27%;
-}
-
-.footer .social-icons {
-  margin-top: 1rem;
-}
-
-.footer .social-icons a {
-  color: white;
-  margin: 0 10px;
-  font-size: 1.2rem;
+.navbar .nav-link {
+  color: #333;
+  margin-right: 10px;
+  padding: 0.5rem 0.75rem; 
   transition: color 0.3s ease-in-out;
 }
 
-.footer .social-icons a:hover {
+.navbar .nav-link:hover {
   color: #007bff;
 }
 
-/* Responsive Styles */
+
+.container {
+  max-width: 600px;
+  margin: 0 auto;
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-top: 100px;
+}
+
+h1 {
+  text-align: center;
+  color: #333;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.form-group input, .form-group textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.form-group button {
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.form-group button:hover {
+  background-color: #0056b3;
+}
+
+.question {
+  background: #f9f9f9;
+  padding: 15px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+}
+
+.question h3 {
+  margin: 0 0 10px;
+  color: #007bff;
+}
+
+.question p {
+  margin: 0;
+}
+
+.actions {
+  margin-top: 10px;
+}
+
+.actions button {
+  margin-right: 5px;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.actions .edit {
+  background-color: #ffc107;
+  color: #fff;
+}
+
+.actions .delete {
+  background-color: #dc3545;
+  color: #fff;
+}
+
+.actions .save {
+  background-color: #28a745;
+  color: #fff;
+}
+
+.actions button:hover {
+  opacity: 0.9;
+}
+
+
+.footer {
+background-color: #001c3a;
+color: white;
+text-align: center;
+padding: 1.5rem 0;
+margin-top: 27%;
+}
+
+.footer .social-icons {
+margin-top: 1rem;
+}
+
+.footer .social-icons a {
+color: white;
+margin: 0 10px;
+font-size: 1.2rem;
+transition: color 0.3s ease-in-out;
+}
+
+.footer .social-icons a:hover {
+color: #007bff;
+}
+
 @media (max-width: 768px) {
-  .hero-caption h1 {
-    font-size: 2rem;
-  }
+.hero-caption h1 {
+  font-size: 2rem;
+}
 }

@@ -12,12 +12,12 @@ body {
 /* Navbar Styles */
 .navbar {
     background-color: transparent;
-    padding: 0.5rem 1rem; /* Kurangi padding untuk mengecilkan navbar */
+    padding: 0.5rem 1rem; 
     transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
   }
   
   .navbar-brand img {
-    height: 50px; /* Sesuaikan ukuran logo */
+    height: 50px; 
     width: auto;
   }
   
@@ -61,7 +61,7 @@ body {
     color: white;
     padding: 8px 10px;
     border-radius: 20px;
-    font-size: 0.87rem; /* Perkecil ukuran tombol */
+    font-size: 0.87rem; 
   }
   
 
@@ -147,7 +147,7 @@ input:focus {
 }
 
 .half-width {
-    flex: 1; /* Membagi kolom menjadi setengah lebar */
+    flex: 1; 
 }
 
 .btn {

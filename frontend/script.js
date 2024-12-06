@@ -4,19 +4,19 @@ document.addEventListener("DOMContentLoaded", () => {
   const logoutBtn = document.getElementById("logout-btn");
   const userIcon = userMenu.querySelector("img");
 
-  // Cek token untuk menentukan apakah pengguna sudah login
+  
   const token = localStorage.getItem("token");
   if (token) {
     loginBtn.classList.add("d-none");
     userMenu.classList.remove("d-none");
 
-    // Ambil data profil pengguna
+    
     fetch('http://localhost:3000/api/profile', {
       headers: { 'Authorization': 'Bearer ' + token }
     })
     .then(response => response.json())
     .then(data => {
-      userIcon.src = data.profile.profile_picture || 'img/default-avatar.png'; // Ganti dengan gambar profil
+      userIcon.src = data.profile.profile_picture || 'img/default-avatar.png'; 
     })
     .catch(error => console.error('Error fetching profile:', error));
   } else {
